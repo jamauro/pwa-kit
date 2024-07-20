@@ -18,9 +18,9 @@ Meteor.startup(async () => {
 ```
 
 ## Add a webmanifest
-Inside the `/public` folder of your Meteor app, add the `site.webmanifest` file included as part of this repo. Make tweaks to it as needed. The `src` for the icons should point to wherever the icons are located in your `/public` folder.
+Inside the `/public` folder of your Meteor app, add the `app.webmanifest` file included as part of this repo. Make tweaks to it as needed. The `src` for the icons should point to wherever the icons are located in your `/public` folder.
 
-Update the `head` in your `/client/main.html` to point to the `site.webmanifest` and your app icons:
+Update the `head` in your `/client/main.html` to point to the `app.webmanifest` and your app icons:
 ```html
 <head>
   <title>your app name</title>
@@ -31,7 +31,7 @@ Update the `head` in your `/client/main.html` to point to the `site.webmanifest`
   <link rel='icon' type='image/png' sizes='32x32' href='/icons/favicon-32x32.png'> <!-- TODO: you'll likely want to update this based on where your icons are located in your /public folder -->
   <link rel='icon' type='image/png' sizes='16x16' href='/icons/favicon-16x16.png'> <!-- TODO: you'll likely want to update this based on where your icons are located in your /public folder  -->
   <link rel='mask-icon' href='/icons/safari-pinned-tab.svg' color='#0096FF'> <!-- TODO: you'll likely want to update this based on where your icons are located in your /public folder and what your app's theme color is -->
-  <link rel='manifest' href='/site.webmanifest'>
+  <link rel='manifest' href='/app.webmanifest'>
   <meta name='msapplication-TileColor' content='#0096FF'> <!-- TODO: you'll likely want to update this basedwhat your app's theme color is -->
   <meta name='theme-color' content='#0096FF'> <!-- TODO: you'll likely want to update this based on what your app's theme color is -->
   <noscript>
