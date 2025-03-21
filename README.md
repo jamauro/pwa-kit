@@ -1,6 +1,11 @@
 # PWA Kit
 
-PWA Kit is a starter kit designed to help Meteor developers make their apps offline capable and convert them into Progressive Web Apps (PWAs). This repository includes the essential files and instructions to get started.
+PWA Kit is a starter kit designed to help Meteor developers make their apps offline capable and convert them into Progressive Web Apps (PWAs). This repository includes the essential files and instructions to get started. The service worker included in this kit is made specifically for Meteor apps. Here are some of its benefits:
+
+* Automatically removes old caches without you needing to think about it
+* Web push notification support
+* Dynamic import support when testing in dev (Meteor automatically handles this in prod)
+* Dependency free - vanilla js
 
 ## Add a service worker
 Inside the `/public` folder of your Meteor app, add the `sw.js` file included as part of this repo. Make tweaks to it as needed.
