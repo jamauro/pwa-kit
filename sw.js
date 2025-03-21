@@ -112,18 +112,18 @@ self.addEventListener('fetch', async event => {
 });
 
 // web push notifications
-self.addEventListener('push', async event => {
+self.addEventListener('push', event => {
   try {
     const { title = 'Notification', body, icon, badge, actions, ...data } = event.data?.json() || {};
     const options = { ...notificationConfig, body, icon, badge, actions, data };
 
-    await self.registration.showNotification(title, options);
+    event.waitUntil(self.registration.showNotification(title, options));
   } catch (error) {
     console.error('Failed to show notification:', error);
   }
 });
 
-self.addEventListener('notificationclick', async event => {
+self.addEventListener('notificationclick', event => {
   const { notification } = event;
 
   notification.close();
