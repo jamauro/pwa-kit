@@ -114,7 +114,7 @@ self.addEventListener('fetch', async event => {
 // web push notifications
 self.addEventListener('push', async event => {
   try {
-    const { title = '', body, icon, badge, actions, ...data } = await event.data.json();
+    const { title = 'Notification', body, icon, badge, actions, ...data } = event.data?.json() || {};
     const options = { ...notificationConfig, body, icon, badge, actions, data };
 
     await self.registration.showNotification(title, options);
