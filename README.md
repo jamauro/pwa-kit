@@ -1,21 +1,32 @@
 # PWA Kit
 
-PWA Kit is a starter kit designed to help Meteor developers make their apps offline capable and convert them into Progressive Web Apps (PWAs). This repository includes the essential files and instructions to get started. The service worker included in this kit is made specifically for Meteor apps. Here are some of its benefits:
+PWA Kit is a starter kit designed to help Meteor developers make their apps offline capable and convert them into Progressive Web Apps (PWAs). This repository includes the essential files and instructions to get started. There are two service workers included in this kit that are made specifically for Meteor apps.
 
-* Automatically removes old caches without you needing to think about it
-* Web push notification support
+1. `sw.js` - dependency free, vanilla js
+2. `sw_workbox.js` - uses [Google Workbox](https://developer.chrome.com/docs/workbox). Includes an extra feature – expiration rules by content type (optional).
+
+Pick one based on your preferences. :) Check the `config` in the file for more info.
+
+Both of them have these benefits:
+
+* Zero config with sensible defaults but can make changes easily
+* Optimized caching for Meteor's bundles
+* Automatically remove old caches without you needing to think about it
+* Precache specific assets and an easy way to version them if needed with `include`
+* Ignore paths from being cached with `exclude`
+* Web push notification support (optional)
+* Support for external CDN usage (optional)
 * Dynamic import support when testing in dev (Meteor automatically handles this in prod)
-* Dependency free - vanilla js
 
 ## Add a service worker
-Inside the `/public` folder of your Meteor app, add the `sw.js` file included as part of this repo. Make tweaks to it as needed.
+Inside the `/public` folder of your Meteor app, add either the `sw.js` or `sw_workbox.js` file included as part of this repo. Feel free to rename the file. Make tweaks to it as needed.
 
 On the client, for example in `/client/main.js`, register the service worker:
 
 ```js
 Meteor.startup(async () => {
   try {
-    await navigator.serviceWorker.register('/sw.js');
+    await navigator.serviceWorker.register('/sw.js'); // must match the name given to your service work file
   } catch (error) {
     console.error('Service Worker registration failed:', error);
   }
